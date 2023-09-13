@@ -6,16 +6,7 @@ import Hero from './components/Hero';
 import Movies from './components/Movies';
 
 function App() {
-  
-    const fetchData = () => {
-      try {
-        const res = axios.get('https://api.themoviedb.org/3/movie/top_rated');
-        console.log(res);
-      } catch (error) {
-        
-      }
-    }
-fetchData();
+  ;
   return (
     <div>
       <Hero />
