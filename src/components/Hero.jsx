@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="bg-[url('/src/assets/Poster.svg')] hero px-[66px]">
             <NavBar />
             <HeroDetails />
-            
+
         </div>
     </div>
   )

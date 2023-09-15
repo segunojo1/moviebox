@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <div>
         <div className='flex items-center justify-between'>
-            <img src={logo} alt="" />
+            <img src={logo} alt="" className='lg:block hidden'/>
             <div className='flex relative w-[525px] h-[36px] items-center'>
             <input 
             type="text" 

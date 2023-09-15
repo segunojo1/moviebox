@@ -2,15 +2,23 @@ import { useState } from 'react'
 import './App.css'
 import axios from 'axios';
 import SearchBar from './components/NavBar';
-import Hero from './components/Hero';
-import Movies from './components/Movies';
+
+import { ContextProvider } from './context';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import MovieDetail from './pages/MovieDetail';
 
 function App() {
-  ;
   return (
-    <div>
-      <Hero />
-      <Movies /> 
+    <div className='App'>
+      <ContextProvider>
+        <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/movie/:id' element={<MovieDetail />} />
+        </Routes>
+        </BrowserRouter>
+      </ContextProvider>
     </div>
   )
 }
