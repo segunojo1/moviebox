@@ -22,7 +22,7 @@ const Movies = () => {
                     setMovies(mov);
                 }
             } catch (error) {
-                
+                setMovies(null)
             }
         }
         fetchData();
@@ -48,7 +48,8 @@ const Movies = () => {
         </div>
         </div>
         <div className='grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-11 mt-6 mx-auto w-fit'>
-           {movies.map(({release_date, backdrop_path, id, overview, poster_path, title}) => (
+           { movies != null ? 
+           movies.map(({release_date, backdrop_path, id, overview, poster_path, title}) => (
             <div data-testid = "movie-card" className='grid md:w-[250px] w-[200px]' key={id} 
             onClick={() => {
                 getData(id)
@@ -84,7 +85,9 @@ const Movies = () => {
                 </div>
                     <p className='font-bold  text-[#9CA3AF]'>Action</p>
             </div>
-           ))}
+           )) : (
+            <h1>SORRY MOVIES COULDN'T BE FETCHED TRY AGAIN LATER</h1>
+           )}
         </div>
     </div>
   )
