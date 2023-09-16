@@ -19,12 +19,25 @@ const MainMovieDetail = ({vid}) => {
         </div>
         
         <div>
-            <div className='flex justify-between'>
-            <p className='font-bold py-5'>{selectedMovie.title} • {selectedMovie.release_data} PG-13 • 2h 10m</p>
+            <div className='flex'>
+                {
+                    selectedMovie != null ? (
+                        <div className='flex justify-between items-center gap-6'>
+            <p className='font-bold py-5' data-testid= "movie-title">{selectedMovie.title}</p>
+            <p data-testid = "movie-release-date" > {selectedMovie.release_date} </p>
+            <p>• PG-13 •</p>
+            <p data-testid="movie-runtime">{selectedMovie.runtime}</p>
                 <div className='flex items-center'>  
                     <img src={star} alt="star" />
                     <p>{selectedMovie.vote_average}</p>
                 </div>
+                        </div>
+                    ) : (
+                        <div>
+                            <h1>SORRY WE COULDN'T FETCH MOVIE DETAILS</h1>
+                        </div>
+                    )
+                }
             </div>
             <div>
                 
@@ -32,13 +45,15 @@ const MainMovieDetail = ({vid}) => {
         </div>
         <div>
             <div className='grid gap-5'>
-               <p>{selectedMovie.overview}</p>
+               <p data-testid= "movie-overview" >{selectedMovie.overview}</p>
                 <p>Director: </p>
                 <p className='text-[#BE123C]'>Budget: ${selectedMovie.budget}</p>
                 <p className='text-[#BE123C]'>Revenue: ${selectedMovie.revenue}</p>
                 <img src={foot} alt="" />
             </div>
+            <div>
 
+            </div>
         </div>
 
     </div>

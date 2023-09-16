@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import imdb from '../assets/jj.svg'
 import tomato from '../assets/tomato.svg'
 import play from '../assets/play.svg'
+import moviedb from '../apis/moviedb'
 
 const HeroDetails = () => {
+  const [heroMovie, setHeroMovie] = useState();
+  const ranNum = Math.floor(Math.random() * 1000);
+
+  useEffect(() => {
+    const getRandomMovie = async () => {
+      const resp = await moviedb.get(`/movie/${ranNum}`);
+      setHeroMovie(resp);
+      console.log(resp);
+    }
+    getRandomMovie();
+  }, [])
   return (
     <div className='w-[404px] mt-[2rem] gap-4 grid pb-32'>
         <h1 className='text-white font-bold text-5xl'>John Wick 3 : Parabellum</h1>

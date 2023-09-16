@@ -16,6 +16,7 @@ body{
   height: 449px;
   background-size: cover;
 }
-/* .hero{
+.hero{
   background-image: url("/src//assets/Poster.svg");
-} */
+  background-position: center;
+}
