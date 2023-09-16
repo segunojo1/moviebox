@@ -7,6 +7,11 @@ const MainMovieDetail = ({vid}) => {
     let isMounted;
     const {selectedMovie} = useGlobalContext();
     const gen = selectedMovie.genres;
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString)
+        return date.toUTCString()
+    }
     useEffect(() => {
         isMounted = false;
         isMounted = true;
@@ -24,7 +29,7 @@ const MainMovieDetail = ({vid}) => {
                     selectedMovie != null ? (
                         <div className='flex justify-between items-center gap-6'>
             <p className='font-bold py-5' data-testid= "movie-title">{selectedMovie.title}</p>
-            <p data-testid = "movie-release-date" > {selectedMovie.release_date} </p>
+            <p data-testid = "movie-release-date" >{formatDate(selectedMovie.release_date)}</p>
             <p>• PG-13 •</p>
             <p data-testid="movie-runtime">{selectedMovie.runtime}</p>
                 <div className='flex items-center'>  
